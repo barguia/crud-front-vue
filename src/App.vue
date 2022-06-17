@@ -1,26 +1,57 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="row">
+    <InputText
+        label="Teste"
+        name="text"
+        :errors="[]"
+        value="Eduardo Barbelino da Purificação"
+        classes="col-md-3"
+        size="sm"
+        type="boob"
+    />
+
+    <InputText
+        label="Teste"
+        name="text"
+        :errors="['Erro Alexsandra não é feia']"
+        :accurates="[]"
+        value="Eduardo Barbelino da Purificação"
+        classes="col-md-3"
+        size="sm"
+        type="date"
+    />
+    <SelectValue
+        label="Teste"
+        name="select"
+        option-label="campo"
+
+        :errors="[]"
+        :accurates="['Sucesso']"
+        classes="col-md-3"
+        size="sm"
+        :items="[{id: 1, campo: 'teste'},{id: 2, campo: 'teste 2'},]"
+        value="1"
+    />
+  </div>
+
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+
+import InputText from "@/components/InputText";
+import SelectValue from "@/components/SelectValue";
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    InputText,
+    SelectValue
   }
 }
 </script>
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+
 }
 </style>
