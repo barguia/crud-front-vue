@@ -5,7 +5,7 @@
 </template>
 <script>
 export default {
-  name: "FeedbackComponent",
+  name: "FieldFeedbackComponent",
   props: {
     errors: Array,
     accurates: Array,

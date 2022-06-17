@@ -3,16 +3,17 @@
     <label :for="name" class="form-label" v-if="label">{{ label }}</label>
     <input :type="type"
       :class="getInputClass" :id="name" :name="name" :placeholder="placeholder" :value="value">
-    <FeedbackComponent :errors="errors" :accurates="accurates" />
+    <FieldFeedback :errors="errors" :accurates="accurates" />
   </div>
 </template>
 
 <script>
-import FeedbackComponent from "@/components/FeedbackComponent";
+import FieldFeedback from "@/components/Form/FieldFeedback";
+
 export default {
   name: "InputComponent",
   components: {
-    FeedbackComponent
+    FieldFeedback
   },
 
   props: {

@@ -8,16 +8,16 @@
         :selected="item[optionValue] == value"
       >{{ item[optionLabel] }}</option>
     </select>
-    <FeedbackComponent :errors="errors" :accurates="accurates" />
+    <FieldFeedback :errors="errors" :accurates="accurates" />
   </div>
 </template>
 
 <script>
-import FeedbackComponent from "@/components/FeedbackComponent";
+import FieldFeedback from "@/components/Form/FieldFeedback";
 export default {
   name: "InputComponent",
   components:{
-    FeedbackComponent
+    FieldFeedback
   },
   props: {
     label: String,
