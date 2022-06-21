@@ -15,7 +15,7 @@
 <script>
 import FieldFeedback from "@/components/Form/FieldFeedback";
 export default {
-  name: "InputComponent",
+  name: "SelectComponent",
   components:{
     FieldFeedback
   },

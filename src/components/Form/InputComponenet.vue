@@ -1,6 +1,6 @@
 <template>
-  <div :class="classes">
-    <label :for="name" class="form-label" v-if="label">{{ label }}</label>
+  <div class="mb-3">
+    <label :for="name" class="form-label mb-1" v-if="label">{{ label }}</label>
     <input :type="type"
       :class="getInputClass" :id="name" :name="name" :placeholder="placeholder" :value="value">
     <FieldFeedback :errors="errors" :accurates="accurates" />
@@ -35,7 +35,6 @@ export default {
     },
     size: String,
     value: String,
-    classes: String,
     type: {
       type: String,
       default: 'text'
