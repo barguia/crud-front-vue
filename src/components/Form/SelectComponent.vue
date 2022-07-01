@@ -1,11 +1,12 @@
 <template>
   <div :class="classes">
     <label :for="name" class="form-label" v-if="label">{{ label }}</label>
-    <select :class="getClass" :id="name" :name="name" :value="value">
+    <select :class="getClass" :id="name" :name="name" @change="updatedSelected">
       <option value="">Selecione</option>
       <option v-for="(item, index) in items" :key="index"
         :value="item[optionValue]"
-        :selected="item[optionValue] == value"
+        :selected="item[optionValue] == modelValue"
+
       >{{ item[optionLabel] }}</option>
     </select>
     <FieldFeedback :errors="errors" :accurates="accurates" />
@@ -36,7 +37,7 @@ export default {
       default: false
     },
     size: String,
-    value: {
+    modelValue: {
       type: String,
       default: ''
     },
@@ -65,6 +66,12 @@ export default {
     },
     getClass() {
       return `${this.getClassSize} ${this.getClassError}`
+    }
+  },
+  methods: {
+    updatedSelected($event) {
+      console.log($event.target.value)
+      this.$emit('update:modelValue', $event.target.value)
     }
   }
 }

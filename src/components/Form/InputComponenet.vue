@@ -2,7 +2,9 @@
   <div class="mb-3">
     <label :for="name" class="form-label mb-1" v-if="label">{{ label }}</label>
     <input :type="type"
-      :class="getInputClass" :id="name" :name="name" :placeholder="placeholder" :value="value">
+      :class="getInputClass" :id="name" :name="name" :placeholder="placeholder" :value="modelValue"
+      @input="updatedValue"
+    >
     <FieldFeedback :errors="errors" :accurates="accurates" />
   </div>
 </template>
@@ -34,10 +36,15 @@ export default {
       default: false
     },
     size: String,
-    value: String,
+    modelValue: String,
     type: {
       type: String,
       default: 'text'
+    }
+  },
+  methods: {
+    updatedValue($event) {
+      this.$emit("update:modelValue", $event.target.value);
     }
   },
   computed: {
@@ -52,7 +59,7 @@ export default {
     },
     getInputClass() {
       return `${this.getClassSize} ${this.getValidationClass}`
-    }
+    },
   }
 }
 </script>

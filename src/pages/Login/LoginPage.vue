@@ -5,19 +5,22 @@
         class="mt-3"
     >
       <InputComponent
-          name="login"
+          name="email"
+          v-model="user.email"
           placeholder="Digite o login"
-          type="text"
-          label="Login"
+          type="email"
+          label="Email"
       />
       <InputComponent
           name="password"
+          v-model="user.password"
           placeholder="Password"
           type="password"
           label="Digite sua senha"
           class="mb-2"
       />
-      <ButtonComponent type="submit">
+
+      <ButtonComponent type="submit" @click="logar(user)">
         Login
       </ButtonComponent>
 
@@ -28,10 +31,21 @@
 </template>
 
 <script>
-import CardComponent from "@/components/CardComponent";
+import { mapActions } from 'vuex'
+
 export default {
   name: "LoginPage",
-  components: {CardComponent}
+  data() {
+    return {
+      user: {}
+    }
+  },
+  created() {
+
+  },
+  methods: {
+    ...mapActions(['logar']),
+  }
 
 }
 </script>
