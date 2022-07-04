@@ -1,12 +1,13 @@
 import { createStore } from 'vuex'
 import api from '@/plugins/api'
+import usuario from '@/store/modules/usuario'
 
 const store = createStore({
     state () {
         return {
             user: {},
             logado: false,
-            token: ''
+            token: '',
         }
     },
     getters: {
@@ -15,7 +16,7 @@ const store = createStore({
         },
         userLogado(state) {
             return state.logado
-        }
+        },
     },
     mutations: {
         setUser(state, payload) {
@@ -46,8 +47,9 @@ const store = createStore({
                     commit('logoutUser')
                 })
                 .catch(erro => console.log(erro))
-        }
-    }
+        },
+    },
+    modules: { usuario }
 })
 
 export default store
